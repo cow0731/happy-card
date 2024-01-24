@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'BMYEONSUNG';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMYEONSUNG.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'BMYEONSUNG', serif;
+}
+
+.content {
+    padding: 0 10% 0 10%;
+}
+
+.content > p > img {
+    width: 100%;
+    border: 1px solid silver;
+    border-radius: 5%;
+    margin-bottom: 20px;
+    padding: 5%;
+}
