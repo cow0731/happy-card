@@ -9,7 +9,9 @@
     <div class="content" layout:fragment="content">
         <h2>설날 카드 목록</h2>
         <p>* 카드를 선택해주세요!</p>
-        <p th:each="card : ${cardList}">
-            <img th:src="@{${card.getUrl()}}" th:alt="${card.getName()}">
+        <button th:each="card : ${cardList}" type="button">
+            <img th:src="${card.getUrl()}" th:alt="${card.getName()}"
+                 th:onclick="|location.href='@{/write-card/{id}(id = ${card.id})}'|">
+        </button>
     </div>
 </html>

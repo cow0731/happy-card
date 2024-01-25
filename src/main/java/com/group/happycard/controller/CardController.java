@@ -5,6 +5,7 @@ import com.group.happycard.service.CardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -22,5 +23,11 @@ public class CardController {
         List<CardResponse> cardList = cardService.getCards();
         model.addAttribute("cardList", cardList);
         return "index";
+    }
+
+    @GetMapping("/write-card/{id}")
+    public String writeCard(Model model, @PathVariable Long id) {
+        model.addAttribute("card_id", id);
+        return "/pages/write-card";
     }
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{layouts/default_layout}">
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" href="/css/card.css" />
+    </th:block>
+
+    <div class="content" layout:fragment="content">
+        <div class="information">
+            <i class="bi bi-postcard-heart"></i>
+            <span>새해 복 많이 받으세요 !</span>
+        </div>
+        <div>
+            <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
+            <textarea class="text-box"></textarea>
+
+        </div>
+    </div>
+</html>
