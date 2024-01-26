@@ -19,6 +19,9 @@ public class Write_Card {
         this.card_id = card_id;
         this.write_contents = write_contents;
     }
+    public Write_Card(){
+
+    }
 
     public Long getWrite_card_id() {
         return write_card_id;
@@ -30,5 +33,17 @@ public class Write_Card {
 
     public String getWrite_contents() {
         return write_contents;
+    }
+
+    public void setWrite_card_id(Long write_card_id) {
+        this.write_card_id = write_card_id;
+    }
+
+    public void setCard_id(long card_id) {
+        this.card_id = card_id;
+    }
+
+    public void setWrite_contents(String write_contents) {
+        this.write_contents = write_contents;
     }
 }

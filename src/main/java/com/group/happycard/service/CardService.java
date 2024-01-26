@@ -1,6 +1,7 @@
 package com.group.happycard.service;
 
 import com.group.happycard.domain.CardRepository;
+import com.group.happycard.domain.Write_CardRepository;
 import com.group.happycard.dto.response.CardResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,5 +23,4 @@ public class CardService {
                 .map(CardResponse::new)
                 .collect(Collectors.toList());
     }
-
 }
