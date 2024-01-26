@@ -13,8 +13,13 @@
         </div>
         <div>
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
-            <textarea class="text-box"></textarea>
-
+            <textarea id="textarea" class="text-box" oninput="autoResize(this)"></textarea>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-info">카드 보내기</button>
+            </div>
         </div>
+        <th:block layout:fragment="script">
+            <script type="text/javascript" src="/js/card.js"></script>
+        </th:block>
     </div>
 </html>
