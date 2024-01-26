@@ -22,4 +22,5 @@ public class CardService {
                 .map(CardResponse::new)
                 .collect(Collectors.toList());
     }
+
 }

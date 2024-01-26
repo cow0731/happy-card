@@ -13,8 +13,31 @@
         </div>
         <div>
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
-            <textarea class="text-box"></textarea>
-
+            <textarea id="autoResizeTextarea" rows="5" oninput="autoResize(this)"></textarea>
         </div>
+        <div>
+            <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+        <script>
+            function autoResize(textarea) {
+
+                if(textarea.scrollHeight>textarea.clientHeight){
+                    console.log("+++")
+                    textarea.style.height = textarea.scrollHeight+"px";
+                }
+                else{
+                    if(textarea.scrollHeight > 106){
+                        console.log("---")
+                        textarea.style.height = (textarea.scrollHeight-24) + "px"
+                        autoResize(textarea);
+                    }
+                }
+            }
+
+            // 페이지 로드 시 초기 호출
+            window.addEventListener('load', function() {
+                autoResize(document.getElementById('autoResizeTextarea'));
+            });
+        </script>
     </div>
 </html>
