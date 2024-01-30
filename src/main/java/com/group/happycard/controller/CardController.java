@@ -1,12 +1,12 @@
 package com.group.happycard.controller;
 
+import com.group.happycard.domain.Write_Card;
 import com.group.happycard.dto.response.CardResponse;
 import com.group.happycard.service.CardService;
+import com.group.happycard.service.WriteCardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +18,6 @@ public class CardController {
     public CardController(CardService cardService) {
         this.cardService = cardService;
     }
-
     @GetMapping("/")
     public String index(Model model) {
         List<CardResponse> cardList = cardService.getCards();
@@ -29,12 +28,16 @@ public class CardController {
     @GetMapping("/write-card/{id}")
     public String writeCard(Model model, @PathVariable Long id) {
         model.addAttribute("card_id", id);
+        System.out.println(id);
         return "/pages/write-card";
     }
 
     @PostMapping("/write-card/{id}")
-    public String registCardMessage(Model model){
+    public void registCardMessage(@RequestParam("write_content") String write_content, @RequestParam("id") Long id){
+        System.out.println(write_content);
+        System.out.println(id);
+        Long writecardId = cardService.register(id,write_content);
+        System.out.println(writecardId);
 
-        return "api";//카카오api 호출
     }
 }

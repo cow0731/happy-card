@@ -11,14 +11,31 @@
             <i class="bi bi-postcard-heart"></i>
             <span>새해 복 많이 받으세요 !</span>
         </div>
+
         <div>
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
-            <textarea id="autoResizeTextarea" rows="5" oninput="autoResize(this)"></textarea>
         </div>
+        <form th:action="@{/write-card/{id}(id = ${card_id})}" method="post" id = "f1">
         <div>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <textarea id="autoResizeTextarea" name="write_content" rows="5" oninput="autoResize(this)"></textarea>
         </div>
-        <script>
+            <div>
+            <input type="hidden" name="id" th:value="${card_id}">
+            </div>
+            <div>
+            <button type="submit" class="btn btn-primary subbtn">Submit</button>
+        </div>
+        </form>
+        <script th:inline="javascript">
+
+            const formObj = document.querySelector("#f1")
+            document.querySelector(".subbtn").addEventListener("click",function (e){
+                e.preventDefault()
+                e.stopPropagation()
+
+                formObj.method = 'post'
+                formObj.submit()
+            }, false)
             function autoResize(textarea) {
 
                 if(textarea.scrollHeight>textarea.clientHeight){

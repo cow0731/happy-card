@@ -35,10 +35,6 @@ public class Write_Card {
         return write_contents;
     }
 
-    public void setWrite_card_id(Long write_card_id) {
-        this.write_card_id = write_card_id;
-    }
-
     public void setCard_id(long card_id) {
         this.card_id = card_id;
     }
