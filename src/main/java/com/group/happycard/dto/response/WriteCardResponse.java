@@ -1,14 +1,14 @@
 package com.group.happycard.dto.response;
 
-import com.group.happycard.domain.Write_Card;
+import com.group.happycard.domain.WriteCard;
 
-public class Write_CardResponse {
+public class WriteCardResponse {
 
     private Long write_card_id;
     private Long card_id;
     private String write_contents;
 
-    public Write_CardResponse(Write_Card writeCard){
+    public WriteCardResponse(WriteCard writeCard){
         this.write_card_id = writeCard.getWrite_card_id();
         this.card_id = writeCard.getCard_id();
         this.write_contents = writeCard.getWrite_contents();

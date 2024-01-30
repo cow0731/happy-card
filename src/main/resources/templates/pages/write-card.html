@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-                layout:decorate="~{layouts/default_layout}">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default_layout}" xmlns="http://www.w3.org/1999/html">
     <th:block layout:fragment="css">
         <link rel="stylesheet" href="/css/card.css" />
     </th:block>
@@ -26,35 +26,7 @@
             <button type="submit" class="btn btn-primary subbtn">Submit</button>
         </div>
         </form>
-        <script th:inline="javascript">
-
-            const formObj = document.querySelector("#f1")
-            document.querySelector(".subbtn").addEventListener("click",function (e){
-                e.preventDefault()
-                e.stopPropagation()
-
-                formObj.method = 'post'
-                formObj.submit()
-            }, false)
-            function autoResize(textarea) {
-
-                if(textarea.scrollHeight>textarea.clientHeight){
-                    console.log("+++")
-                    textarea.style.height = textarea.scrollHeight+"px";
-                }
-                else{
-                    if(textarea.scrollHeight > 106){
-                        console.log("---")
-                        textarea.style.height = (textarea.scrollHeight-24) + "px"
-                        autoResize(textarea);
-                    }
-                }
-            }
-
-            // 페이지 로드 시 초기 호출
-            window.addEventListener('load', function() {
-                autoResize(document.getElementById('autoResizeTextarea'));
-            });
-        </script>
+        <script th:inline="javascript" src="/js/card.js"></script>
+        <script th:inline="javascript" src="/js/sendbtn.js"></script>
     </div>
 </html>

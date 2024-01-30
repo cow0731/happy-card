@@ -1,12 +1,11 @@
 package com.group.happycard.controller;
 
-import com.group.happycard.domain.Write_Card;
 import com.group.happycard.dto.response.CardResponse;
 import com.group.happycard.service.CardService;
-import com.group.happycard.service.WriteCardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -33,11 +32,19 @@ public class CardController {
     }
 
     @PostMapping("/write-card/{id}")
-    public void registCardMessage(@RequestParam("write_content") String write_content, @RequestParam("id") Long id){
+    public String registCardMessage(@RequestParam("write_content") String write_content, @RequestParam("id") Long id, RedirectAttributes redirectAttributes){
         System.out.println(write_content);
         System.out.println(id);
-        Long writecardId = cardService.register(id,write_content);
-        System.out.println(writecardId);
+        Long writeCardId = cardService.register(id,write_content);
+        System.out.println(writeCardId);
+
+        redirectAttributes.addFlashAttribute("result",writeCardId);
+        return "redirect:/page/read-card";
+    }
+
+    @GetMapping("/page/read-card")
+    public void readCardMessage(){
 
     }
 }
+

@@ -1,13 +1,11 @@
 package com.group.happycard.service;
 
-import com.group.happycard.domain.Write_Card;
-import com.group.happycard.domain.Write_CardRepository;
-import org.springframework.transaction.annotation.Transactional;
+import com.group.happycard.domain.WriteCardRepository;
 
 public class WriteCardService {
 
-    private final Write_CardRepository writeCardRepository;
-    public WriteCardService(Write_CardRepository writeCardRepository){
+    private final WriteCardRepository writeCardRepository;
+    public WriteCardService(WriteCardRepository writeCardRepository){
         this.writeCardRepository =writeCardRepository;
     }
 

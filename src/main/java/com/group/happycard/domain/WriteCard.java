@@ -3,7 +3,7 @@ package com.group.happycard.domain;
 import jakarta.persistence.*;
 
 @Entity
-public class Write_Card {
+public class WriteCard {
     @Id
     @Column(name = "write_card_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +15,11 @@ public class Write_Card {
     @Column(name = "write_contents")
     private String write_contents;
 
-    public Write_Card(long card_id, String write_contents){
+    public WriteCard(long card_id, String write_contents){
         this.card_id = card_id;
         this.write_contents = write_contents;
     }
-    public Write_Card(){
+    public WriteCard(){
 
     }
 
