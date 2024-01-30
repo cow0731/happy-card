@@ -14,30 +14,19 @@
 
         <div>
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
-<<<<<<< HEAD
         </div>
         <form th:action="@{/write-card/{id}(id = ${card_id})}" method="post" id = "f1">
         <div>
             <textarea id="autoResizeTextarea" name="write_content" rows="5" oninput="autoResize(this)"></textarea>
         </div>
             <div>
-            <input type="hidden" name="id" th:value="${card_id}">
+                <input type="hidden" name="id" th:value="${card_id}">
             </div>
-            <div>
-            <button type="submit" class="btn btn-primary subbtn">Submit</button>
-        </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-info subbtn">카드 보내기</button>
+            </div>
         </form>
         <script th:inline="javascript" src="/js/card.js"></script>
         <script th:inline="javascript" src="/js/sendbtn.js"></script>
-=======
-            <textarea id="textarea" class="text-box" oninput="autoResize(this)"></textarea>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-info">카드 보내기</button>
-            </div>
-        </div>
-        <th:block layout:fragment="script">
-            <script type="text/javascript" src="/js/card.js"></script>
-        </th:block>
->>>>>>> cd993ff90a91172037b46d365e0dadc238fd2471
     </div>
 </html>
