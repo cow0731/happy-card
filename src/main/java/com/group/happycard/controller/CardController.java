@@ -4,8 +4,8 @@ import com.group.happycard.dto.response.CardResponse;
 import com.group.happycard.service.CardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -17,7 +17,6 @@ public class CardController {
     public CardController(CardService cardService) {
         this.cardService = cardService;
     }
-
     @GetMapping("/")
     public String index(Model model) {
         List<CardResponse> cardList = cardService.getCards();
@@ -28,6 +27,24 @@ public class CardController {
     @GetMapping("/write-card/{id}")
     public String writeCard(Model model, @PathVariable Long id) {
         model.addAttribute("card_id", id);
+        System.out.println(id);
         return "/pages/write-card";
     }
+
+    @PostMapping("/write-card/{id}")
+    public String registCardMessage(@RequestParam("write_content") String write_content, @RequestParam("id") Long id, RedirectAttributes redirectAttributes){
+        System.out.println(write_content);
+        System.out.println(id);
+        Long writeCardId = cardService.register(id,write_content);
+        System.out.println(writeCardId);
+
+        redirectAttributes.addFlashAttribute("result",writeCardId);
+        return "redirect:/page/read-card";
+    }
+
+    @GetMapping("/page/read-card")
+    public void readCardMessage(){
+
+    }
 }
+

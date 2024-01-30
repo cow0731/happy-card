@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-                layout:decorate="~{layouts/default_layout}">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default_layout}" xmlns="http://www.w3.org/1999/html">
     <th:block layout:fragment="css">
         <link rel="stylesheet" href="/css/card.css" />
     </th:block>
@@ -11,8 +11,25 @@
             <i class="bi bi-postcard-heart"></i>
             <span>새해 복 많이 받으세요 !</span>
         </div>
+
         <div>
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
+<<<<<<< HEAD
+        </div>
+        <form th:action="@{/write-card/{id}(id = ${card_id})}" method="post" id = "f1">
+        <div>
+            <textarea id="autoResizeTextarea" name="write_content" rows="5" oninput="autoResize(this)"></textarea>
+        </div>
+            <div>
+            <input type="hidden" name="id" th:value="${card_id}">
+            </div>
+            <div>
+            <button type="submit" class="btn btn-primary subbtn">Submit</button>
+        </div>
+        </form>
+        <script th:inline="javascript" src="/js/card.js"></script>
+        <script th:inline="javascript" src="/js/sendbtn.js"></script>
+=======
             <textarea id="textarea" class="text-box" oninput="autoResize(this)"></textarea>
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-outline-info">카드 보내기</button>
@@ -21,5 +38,6 @@
         <th:block layout:fragment="script">
             <script type="text/javascript" src="/js/card.js"></script>
         </th:block>
+>>>>>>> cd993ff90a91172037b46d365e0dadc238fd2471
     </div>
 </html>
