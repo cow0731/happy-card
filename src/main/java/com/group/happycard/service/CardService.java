@@ -4,10 +4,12 @@ import com.group.happycard.domain.CardRepository;
 import com.group.happycard.domain.WriteCard;
 import com.group.happycard.domain.WriteCardRepository;
 import com.group.happycard.dto.response.CardResponse;
+import com.group.happycard.dto.response.WriteCardResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,5 +35,11 @@ public class CardService {
         writeCard.setWrite_contents(writeContent);
         long writecardId = writeCardRepository.save(writeCard).getWrite_card_id();
         return writecardId;
+    }
+
+    public WriteCard getWriteCard(Long writeCardId){
+        Optional<WriteCard> result = writeCardRepository.findById(writeCardId);
+        WriteCard writeCard = result.orElseThrow();
+        return writeCard;
     }
 }
