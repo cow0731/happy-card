@@ -40,6 +40,7 @@ public class CardController {
         System.out.println(writeCardId);
 
         redirectAttributes.addAttribute("writeCardId",writeCardId);
+        redirectAttributes.addFlashAttribute("result",writeCardId);
         return "redirect:/read-card";
     }
 
@@ -48,7 +49,6 @@ public class CardController {
         WriteCard writeCard = cardService.getWriteCard(writeCardId);
         model.addAttribute("card_id",writeCard.card_id);
         model.addAttribute("writeContent",writeCard.getWrite_contents());
-
         return "/pages/read-card";
     }
 }
