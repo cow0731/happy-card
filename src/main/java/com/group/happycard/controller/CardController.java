@@ -45,15 +45,11 @@ public class CardController {
 
     @GetMapping("/read-card")
     public String readCardMessage(@RequestParam("writeCardId")Long writeCardId, Model model){
-        System.out.println("----------------------------------------");
-        System.out.println(writeCardId);
         WriteCard writeCard = cardService.getWriteCard(writeCardId);
-        System.out.println(writeCard.card_id);
-        System.out.println(writeCard.write_contents);
         model.addAttribute("card_id",writeCard.card_id);
         model.addAttribute("writeContent",writeCard.getWrite_contents());
 
-        return "pages/read-card";
+        return "/pages/read-card";
     }
 }
 
