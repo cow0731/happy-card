@@ -1,5 +1,6 @@
 package com.group.happycard.controller;
 
+import com.group.happycard.domain.WriteCard;
 import com.group.happycard.dto.response.CardResponse;
 import com.group.happycard.service.CardService;
 import org.springframework.stereotype.Controller;
@@ -38,13 +39,21 @@ public class CardController {
         Long writeCardId = cardService.register(id,write_content);
         System.out.println(writeCardId);
 
-        redirectAttributes.addFlashAttribute("result",writeCardId);
-        return "redirect:/page/read-card";
+        redirectAttributes.addAttribute("writeCardId",writeCardId);
+        return "redirect:/read-card";
     }
 
-    @GetMapping("/page/read-card")
-    public void readCardMessage(){
+    @GetMapping("/read-card")
+    public String readCardMessage(@RequestParam("writeCardId")Long writeCardId, Model model){
+        System.out.println("----------------------------------------");
+        System.out.println(writeCardId);
+        WriteCard writeCard = cardService.getWriteCard(writeCardId);
+        System.out.println(writeCard.card_id);
+        System.out.println(writeCard.write_contents);
+        model.addAttribute("card_id",writeCard.card_id);
+        model.addAttribute("writeContent",writeCard.getWrite_contents());
 
+        return "pages/read-card";
     }
 }
 
