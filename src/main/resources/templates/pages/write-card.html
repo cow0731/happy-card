@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/default_layout}" xmlns="http://www.w3.org/1999/html">
-    <th:block layout:fragment="css">
-        <link rel="stylesheet" href="/css/card.css" />
-    </th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" href="/css/card.css" />
+</th:block>
 
-    <div class="content" layout:fragment="content">
-        <div class="information">
-            <i class="bi bi-postcard-heart"></i>
-            <span>새해 복 많이 받으세요 !</span>
-        </div>
+<div class="content" layout:fragment="content">
+    <div class="information">
+        <i class="bi bi-postcard-heart"></i>
+        <span>새해 복 많이 받으세요 !</span>
+    </div>
 
         <div>
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
@@ -19,14 +19,14 @@
         <div class="textarea-top-margin">
             <textarea id="autoResizeTextarea" name="write_content" rows="5" oninput="autoResize(this)"></textarea>
         </div>
-            <div>
-                <input type="hidden" name="id" th:value="${card_id}">
-            </div>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-outline-info subbtn">카드 보내기</button>
-            </div>
-        </form>
-        <script th:inline="javascript" src="/js/card.js"></script>
-        <script th:inline="javascript" src="/js/sendbtn.js"></script>
-    </div>
+        <div>
+            <input type="hidden" name="id" th:value="${card_id}">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-info subbtn">카드 보내기</button>
+        </div>
+    </form>
+    <script th:inline="javascript" src="/js/card.js"></script>
+    <script th:inline="javascript" src="/js/sendbtn.js"></script>
+</div>
 </html>

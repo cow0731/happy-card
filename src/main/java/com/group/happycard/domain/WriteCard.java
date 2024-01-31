@@ -10,10 +10,10 @@ public class WriteCard {
     private Long write_card_id = null;
 
     @Column(name = "card_id")
-    private long card_id;
+    public long card_id;
 
     @Column(name = "write_contents")
-    private String write_contents;
+    public String write_contents;
 
     public WriteCard(long card_id, String write_contents){
         this.card_id = card_id;

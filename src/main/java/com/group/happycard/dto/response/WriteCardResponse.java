@@ -14,9 +14,6 @@ public class WriteCardResponse {
         this.write_contents = writeCard.getWrite_contents();
     }
 
-    public Long getWrite_card_id() {
-        return write_card_id;
-    }
 
     public Long getCard_id() {
         return card_id;
