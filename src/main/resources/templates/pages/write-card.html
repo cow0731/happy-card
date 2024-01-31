@@ -16,7 +16,7 @@
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
         </div>
         <form th:action="@{/write-card/{id}(id = ${card_id})}" method="post" id = "f1">
-        <div>
+        <div class="textarea-top-margin">
             <textarea id="autoResizeTextarea" name="write_content" rows="5" oninput="autoResize(this)"></textarea>
         </div>
             <div>
