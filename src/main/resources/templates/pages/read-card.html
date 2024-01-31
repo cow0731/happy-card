@@ -13,17 +13,12 @@
         </div>
 
         <div>
-            <img th:src="@{'/img/00' + '1' + '.png'}" th:alt="'1' + 'image'">
+            <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
         </div>
         <div class="textarea-top-margin">
             <div class="typing-txt">
-                <textarea readonly id="autoResizeTextarea" rows="5" oninput="autoResize(this)">
-                    안녕하세요. 테스트입니다!
-                    타이핑 글씨가 잘 써지나 확인중 입니다.
-                    테스트 테스트 오케이!
-                    잘 써지나??
-                    뭔가 이상한데??
-                    에라 모르겠다~
+                <textarea readonly id="autoResizeTextarea" rows="5">
+                    [[${writeContent}]]
                 </textarea>
             </div>
             <div class="typing">
