@@ -13,20 +13,24 @@
         </div>
 
         <div>
-            <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
+            <img th:src="@{'/img/00' + '1' + '.png'}" th:alt="'1' + 'image'">
         </div>
-        <form th:action="@{/write-card/{id}(id = ${card_id})}" method="post" id = "f1">
         <div class="textarea-top-margin">
-            <textarea id="autoResizeTextarea" name="write_content" rows="5" oninput="autoResize(this)"></textarea>
+            <div class="typing-txt">
+                <textarea readonly id="autoResizeTextarea" rows="5" oninput="autoResize(this)">
+                    안녕하세요. 테스트입니다!
+                    타이핑 글씨가 잘 써지나 확인중 입니다.
+                    테스트 테스트 오케이!
+                    잘 써지나??
+                    뭔가 이상한데??
+                    에라 모르겠다~
+                </textarea>
+            </div>
+            <div class="typing">
+                <textarea readonly id="typingTextarea"></textarea>
+            </div>
         </div>
-            <div>
-                <input type="hidden" name="id" th:value="${card_id}">
-            </div>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-outline-info subbtn">카드 보내기</button>
-            </div>
-        </form>
         <script th:inline="javascript" src="/js/card.js"></script>
-        <script th:inline="javascript" src="/js/sendbtn.js"></script>
+        <script th:inline="javascript" src="/js/typing.js"></script>
     </div>
 </html>

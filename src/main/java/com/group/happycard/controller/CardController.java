@@ -39,12 +39,12 @@ public class CardController {
         System.out.println(writeCardId);
 
         redirectAttributes.addFlashAttribute("result",writeCardId);
-        return "redirect:/page/read-card";
+        return "redirect:/read-card";
     }
 
-    @GetMapping("/page/read-card")
-    public void readCardMessage(){
-
+    @GetMapping("/read-card")
+    public String readCardMessage(){
+        return "/pages/read-card";
     }
 }
 
