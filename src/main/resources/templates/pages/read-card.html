@@ -6,26 +6,26 @@
     <link rel="stylesheet" href="/css/card.css" />
 </th:block>
 
-<div class="content" layout:fragment="content">
-    <div class="information">
-        <i class="bi bi-postcard-heart"></i>
-        <span>새해 복 많이 받으세요 !</span>
-    </div>
+    <div class="content" layout:fragment="content">
+        <div class="information">
+            <i class="bi bi-postcard-heart"></i>
+            <span>새해 복 많이 받으세요 !</span>
+        </div>
 
-    <div>
-        <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
-    </div>
-    <div class="textarea-top-margin">
-        <div class="typing-txt">
+        <div>
+            <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
+        </div>
+        <div class="textarea-top-margin">
+            <div class="typing-txt">
                 <textarea readonly id="autoResizeTextarea" rows="5">
                     [[${writeContent}]]
                 </textarea>
+            </div>
+            <div class="typing">
+                <textarea readonly id="typingTextarea"></textarea>
+            </div>
         </div>
-        <div class="typing">
-            <textarea readonly id="typingTextarea"></textarea>
-        </div>
+        <script th:inline="javascript" src="/js/card.js"></script>
+        <script th:inline="javascript" src="/js/typing.js"></script>
     </div>
-    <script th:inline="javascript" src="/js/card.js"></script>
-    <script th:inline="javascript" src="/js/typing.js"></script>
-</div>
 </html>
