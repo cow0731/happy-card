@@ -1,5 +1,9 @@
+h4 {
+    font-family: 'BMYEONSUNG', serif;
+}
+
 /*모달 팝업 영역 스타일링*/
-.modal {
+.modal-container {
     /*팝업 배경*/
     display: none; /*평소에는 보이지 않도록*/
     position: absolute;
@@ -10,20 +14,29 @@
     overflow: hidden;
     background: rgba(0,0,0,0.5);
 }
-.modal .modal_popup {
+.modal-container .modal-popup {
     /*팝업*/
     position: absolute;
+    display: flex;
+    /*위에서 아래로 수직 배치*/
+    flex-direction: column;
+    /*중앙정렬*/
+    justify-content: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
+    width: 300px;
+    height: 40%;
     background: #ffffff;
     border-radius: 20px;
 }
-.modal .modal_popup .close_btn {
+.modal-container .modal-popup .share-btn {
+    position: fixed;
+    bottom: 20px;
     display: block;
     padding: 10px 20px;
-    background-color: rgb(116, 0, 0);
+    background-color: #F7E600;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -31,6 +44,10 @@
     transition: box-shadow 0.2s;
 }
 
-.modal.on {
+.modal-container.on {
     display: block;
+}
+
+.copy-value {
+    width: 70%;
 }
