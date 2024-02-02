@@ -4,22 +4,25 @@ import com.group.happycard.domain.WriteCard;
 
 public class WriteCardResponse {
 
-    private Long write_card_id;
-    private Long card_id;
-    private String write_contents;
+    private Long writeCardId;
+    private Long cardId;
+    private String writeContents;
 
     public WriteCardResponse(WriteCard writeCard){
-        this.write_card_id = writeCard.getWrite_card_id();
-        this.card_id = writeCard.getCard_id();
-        this.write_contents = writeCard.getWrite_contents();
+        this.writeCardId = writeCard.getWriteCardId();
+        this.cardId = writeCard.getCardId();
+        this.writeContents = writeCard.getWriteContents();
     }
 
-
-    public Long getCard_id() {
-        return card_id;
+    public Long getWriteCardId() {
+        return writeCardId;
     }
 
-    public String getWrite_contents() {
-        return write_contents;
+    public Long getCardId() {
+        return cardId;
+    }
+
+    public String getWriteContents() {
+        return writeContents;
     }
 }

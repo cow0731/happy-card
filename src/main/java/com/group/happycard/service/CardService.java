@@ -29,17 +29,15 @@ public class CardService {
                 .collect(Collectors.toList());
     }
 
-    public Long register(Long cardId ,String writeContent){
+    public Long register(Long cardId ,String writeContents){
         WriteCard writeCard = new WriteCard();
-        writeCard.setCard_id(cardId);
-        writeCard.setWrite_contents(writeContent);
-        long writecardId = writeCardRepository.save(writeCard).getWrite_card_id();
-        return writecardId;
+        writeCard.setCardId(cardId);
+        writeCard.setWriteContents(writeContents);
+        return writeCardRepository.save(writeCard).getWriteCardId();
     }
 
     public WriteCard getWriteCard(Long writeCardId){
         Optional<WriteCard> result = writeCardRepository.findById(writeCardId);
-        WriteCard writeCard = result.orElseThrow();
-        return writeCard;
+        return result.orElseThrow();
     }
 }

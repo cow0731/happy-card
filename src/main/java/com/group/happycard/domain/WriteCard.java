@@ -4,42 +4,55 @@ import jakarta.persistence.*;
 
 @Entity
 public class WriteCard {
+
     @Id
     @Column(name = "write_card_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long write_card_id = null;
+    private Long writeCardId = null;
 
     @Column(name = "card_id")
-    public long card_id;
+    private long cardId;
 
     @Column(name = "write_contents")
-    public String write_contents;
+    private String writeContents;
 
-    public WriteCard(long card_id, String write_contents){
-        this.card_id = card_id;
-        this.write_contents = write_contents;
-    }
-    public WriteCard(){
+    @Column(name = "writer_name")
+    private String writerName;
 
-    }
-
-    public Long getWrite_card_id() {
-        return write_card_id;
+    public WriteCard(long cardId, String writeContents){
+        this.cardId = cardId;
+        this.writeContents = writeContents;
     }
 
-    public long getCard_id() {
-        return card_id;
+    public WriteCard() {
+
     }
 
-    public String getWrite_contents() {
-        return write_contents;
+    public Long getWriteCardId() {
+        return writeCardId;
     }
 
-    public void setCard_id(long card_id) {
-        this.card_id = card_id;
+    public long getCardId() {
+        return cardId;
     }
 
-    public void setWrite_contents(String write_contents) {
-        this.write_contents = write_contents;
+    public void setCardId(long cardId) {
+        this.cardId = cardId;
+    }
+
+    public String getWriteContents() {
+        return writeContents;
+    }
+
+    public void setWriteContents(String writeContents) {
+        this.writeContents = writeContents;
+    }
+
+    public String getWriterName() {
+        return writerName;
+    }
+
+    public void setWriterName(String writerName) {
+        this.writerName = writerName;
     }
 }
