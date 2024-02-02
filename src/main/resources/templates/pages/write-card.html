@@ -24,9 +24,16 @@
         </div>
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-outline-info subbtn">카드 보내기</button>
+            <button type="button" th:onclick="setShare('test')">공유하기</button>
         </div>
     </form>
     <script th:inline="javascript" src="/js/card.js"></script>
     <script th:inline="javascript" src="/js/sendbtn.js"></script>
+    <script th:inline="javascript" src="/js/share.js"></script>
+    <script th th:inline="javascript">
+        function sendCard(cardId, Content){
+
+        }
+    </script>
 </div>
 </html>
