@@ -40,18 +40,21 @@ public class CardController {
         JSONArray jsonArray = new JSONArray(jsonData);
         JSONObject jsonObject = null;
         String cardId = null;
-        Long longId = null;
-        String write_content = null;
+        Long longCardId = null;
+        String writeContents = null;
+        String writerName = null;
 
         for (int i = 0; i < jsonArray.length(); i++) {
             jsonObject = jsonArray.getJSONObject(i);
             cardId = String.valueOf(jsonObject.get("id"));
-            write_content = String.valueOf(jsonObject.get("write_content"));
-            longId = Long.parseLong(cardId);
+            writeContents = String.valueOf(jsonObject.get("write_content"));
+            writerName = String.valueOf(jsonObject.get("writer_name"));
+            longCardId = Long.parseLong(cardId);
         }
-        System.out.println(write_content);
-        System.out.println(longId);
-        Long writeCardId = cardService.register(longId ,write_content);
+        System.out.println(longCardId);
+        System.out.println(writeContents);
+        System.out.println(writerName);
+        Long writeCardId = cardService.register(longCardId ,writeContents, writerName);
         System.out.println(writeCardId);
 
         return String.valueOf(writeCardId);

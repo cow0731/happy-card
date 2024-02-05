@@ -29,13 +29,16 @@ public class CardService {
                 .collect(Collectors.toList());
     }
 
-    public Long register(Long cardId ,String writeContents){
+    @Transactional
+    public Long register(Long cardId, String writeContents, String writerName){
         WriteCard writeCard = new WriteCard();
         writeCard.setCardId(cardId);
         writeCard.setWriteContents(writeContents);
+        writeCard.setWriterName(writerName);
         return writeCardRepository.save(writeCard).getWriteCardId();
     }
 
+    @Transactional(readOnly = true)
     public WriteCard getWriteCard(Long writeCardId){
         Optional<WriteCard> result = writeCardRepository.findById(writeCardId);
         return result.orElseThrow();

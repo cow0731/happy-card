@@ -19,13 +19,24 @@ span, textarea {
     width: 100%;
     height: 106px;
     border: none;
-    background-attachment: local;
-    background-image:
-            linear-gradient(to right, white 10px, transparent 10px),
-            linear-gradient(to left, white 10px, transparent 10px),
-            repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
-    line-height: 31px;
-    padding: 8px 10px;
+    font-size: 16px;
+    line-height: 32px;
+    background: -webkit-linear-gradient(
+            top,
+            var(--border-color) 0%,
+            var(--border-color) 1px,
+            var(--bg-transparent) 1px,
+            var(--bg-transparent) 100%
+    );
+    background: linear-gradient(
+            to bottom,
+            var(--border-color) 0%,
+            var(--border-color) 1px,
+            var(--bg-transparent) 1px,
+            var(--bg-transparent) 100%
+    );
+    background-size: 24px 32px;
+    background-position: 0 -2px;
 }
 
 .textarea-top-margin {
@@ -39,7 +50,7 @@ span, textarea {
 :root {
     --bg-color: #fff;
     --bg-transparent: rgba(255, 255, 255, 0);
-    --border-color: #2035a7;
+    --border-color: #ccc;
 }
 
 .typing {

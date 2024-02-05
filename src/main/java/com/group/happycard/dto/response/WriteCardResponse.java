@@ -7,11 +7,13 @@ public class WriteCardResponse {
     private Long writeCardId;
     private Long cardId;
     private String writeContents;
+    private String writerName;
 
     public WriteCardResponse(WriteCard writeCard){
         this.writeCardId = writeCard.getWriteCardId();
         this.cardId = writeCard.getCardId();
         this.writeContents = writeCard.getWriteContents();
+        this.writerName = writeCard.getWriterName();
     }
 
     public Long getWriteCardId() {
@@ -24,5 +26,9 @@ public class WriteCardResponse {
 
     public String getWriteContents() {
         return writeContents;
+    }
+
+    public String getWriterName() {
+        return writerName;
     }
 }

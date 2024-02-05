@@ -5,30 +5,62 @@ const modalClose = document.querySelector('.share-btn');
 let url = document.getElementById("card-url");
 
 //열기 버튼을 눌렀을 때 모달팝업이 열림
-modalOpen.addEventListener('click',function(){
-    //'on' class 추가
-    modal.classList.add('on');
-});
+// modalOpen.addEventListener('click',function(){
+//     //'on' class 추가
+//     modal.classList.add('on');
+// });
 //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
 modalClose.addEventListener('click',function(){
     //'on' class 제거
     modal.classList.remove('on');
 });
 
+//1. 토스트 메시지, 버튼요소를 변수에 대입
+const toastMessage = document.getElementById('toast_message');
+const toastMessageCopy = document.getElementById('toast_message_copy');
+
+//2. 토스트 메시지 노출-사라짐 함수 작성
+function toastOn(){
+    toastMessage.classList.add('active');
+    setTimeout(function(){
+        toastMessage.classList.remove('active');
+    },1500);
+}
+
+function toastOnCopy(){
+    toastMessageCopy.classList.add('active');
+    setTimeout(function(){
+        toastMessageCopy.classList.remove('active');
+    },1500);
+}
+
 function sendBtnClick() {
+    const regex_gap = /^\s+|\s+$/gm;
     const card_id = document.getElementsByName("id")[0].value;
-    const contents = document.getElementById("autoResizeTextarea").value;
+    let contents = document.getElementById("autoResizeTextarea").value;
+    let writer_name = document.getElementById("writer-name").value;
+    writer_name = writer_name.replace(regex_gap, '');
+    contents = contents.replace(regex_gap, '');
+
+    if ((writer_name === '') || (contents === '')) {
+        toastOn();
+        return;
+    }
+
     console.log('카드id: '+ card_id)
     console.log('카드내용: '+ contents)
+    console.log('작성자이름: '+ writer_name)
 
     let jsonArray = [];
     let jsonObj = {};
     jsonObj.id = card_id;
     jsonObj.write_content = contents;
+    jsonObj.writer_name = writer_name;
     jsonArray.push(jsonObj);
     console.log(jsonArray)
 
     asyncTest(card_id, jsonArray);
+    modal.classList.add('on');
 }
 
 function asyncTest(card_id, data){
@@ -53,12 +85,9 @@ function asyncTest(card_id, data){
 }
 
 function copyURL() {
-    // navigator.clipboard.writeText(url.value).then(res => {
-    //     alert("URL이 복사되었습니다!");
-    // })
     let clipboard = new ClipboardJS('.btn');
     clipboard.on('success', function(e) {
-        alert("URL 복사가 완료되었습니다!")
+        toastOnCopy();
     });
     clipboard.on('error', function(e) {
         console.log(e);

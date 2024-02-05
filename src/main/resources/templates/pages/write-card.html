@@ -16,8 +16,17 @@
         <div>
             <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
         </div>
+        <div class="inform-input-name" style="margin-top: 20px">
+            <i class="bi bi-pencil-square"></i>
+            <span>당신의 이름을 작성해주세요!</span>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">이름</span>
+            <input id="writer-name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
         <div class="inform-input-text" style="margin-top: 20px">
-            <span>* 아래에 글을 작성해주세요!</span>
+            <i class="bi bi-pencil-fill"></i>
+            <span>아래에 글을 작성해주세요!</span>
         </div>
         <div class="textarea-top-margin">
             <textarea id="autoResizeTextarea" name="write_content" rows="5" oninput="autoResize(this)"></textarea>
@@ -26,7 +35,7 @@
             <input type="hidden" name="id" th:value="${card_id}">
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-outline-info send-btn" th:onclick="sendBtnClick()">카드 보내기</button>
+            <button type="button" class="btn btn-outline-info send-btn" onclick="sendBtnClick()">카드 보내기</button>
         </div>
         <!--모달 팝업-->
         <div class="modal-container">
@@ -45,11 +54,15 @@
             </div>
         </div>
         <!--end 모달 팝업-->
+        <!--토스트 메시지-->
+        <div id="toast_message">내용을 입력해주세요!</div>
+        <div id="toast_message_copy">URL 복사가 완료되었습니다!</div>
+        <!--end 토스트 메시지-->
+
         <script th:inline="javascript" src="/js/dist/clipboard.min.js"></script>
         <script th:inline="javascript" src="/js/card.js"></script>
         <script th:inline="javascript" src="/js/popup.js"></script>
         <script th:inline="javascript" src="/js/share.js"></script>
-
-
+        <script th:inline="javascript" src="/js/key.js"></script>
     </div>
 </html>
