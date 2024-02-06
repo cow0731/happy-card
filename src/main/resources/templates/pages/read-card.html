@@ -24,6 +24,9 @@
             <div class="typing">
                 <textarea readonly id="typingTextarea"></textarea>
             </div>
+            <div class="d-flex justify-content-center">
+                <button th:onclick="|location.href='@{/}'|" class="btn btn-primary">나도 카드 보내기</button>
+            </div>
         </div>
         <script th:inline="javascript" src="/js/card.js"></script>
         <script th:inline="javascript" src="/js/typing.js"></script>
