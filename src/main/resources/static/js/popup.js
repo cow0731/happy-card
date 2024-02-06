@@ -55,7 +55,8 @@ function sendBtnClick() {
         cont.style.boxShadow = "0 0 10px rgba(255,0,0,0.50)";
     }
     else{
-        cont.style.border = 'none';}
+        cont.style.boxShadow = "none";
+    }
     if ((writer_name === '') || (contents === '')) {
         toastOn();
         return;
@@ -87,7 +88,7 @@ function asyncTest(card_id, data){
         },
         body : JSON.stringify(data)
     }).then(res=> {
-        retext().then(function(text){
+        res.text().then(function(text){
             console.log("자바단 데이터 = " + text);
             url = document.getElementById("card-url");
             url.value = "http://localhost:8082/read-card?writeCardId="+ text;

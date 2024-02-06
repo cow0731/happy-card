@@ -16,6 +16,7 @@ h4, input {
     box-shadow: 3px 4px 11px 0 #00000040;
     transition: all 0.5s;
     text-align: center;
+    width: 80%;
 }
 
 /*토스트 메시지 활성화 되었을 때*/
