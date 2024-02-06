@@ -73,10 +73,10 @@ function asyncTest(card_id, data){
         },
         body : JSON.stringify(data)
     }).then(res=> {
-        res.text().then(function(text){
+        retext().then(function(text){
             console.log("자바단 데이터 = " + text);
             url = document.getElementById("card-url");
-            url.value = "http://localhost:8082/read-card?writeCardId="+ text;
+            url.value = "http://happycard.site:8080/read-card?writeCardId="+ text;
         })
     })
     .catch(err=> {
