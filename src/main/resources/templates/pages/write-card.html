@@ -40,11 +40,14 @@
         <!--모달 팝업-->
         <div class="modal-container">
             <div class="modal-popup">
-                <div class="vertical-center">
+                <div class="position-btn-close">
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="vertical-center" style="position: relative;top: 50%;transform: translate(0, -50%); margin: 0 auto">
                     <h4 class="text-center">소중한 편지가 작성되었어요!</h4>
                     <h4 class="text-center">어서 공유해봅시다 :-)</h4>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" readonly id="card-url" aria-label="read-card url" aria-describedby="button-copy">
+                        <input type="text" class="form-control" readonly="" id="card-url" aria-label="read-card url" aria-describedby="button-copy">
                         <button onclick="copyURL()" type="button" class="btn btn-outline-secondary" id="button-copy" data-clipboard-target="#card-url">복사</button>
                     </div>
                 </div>

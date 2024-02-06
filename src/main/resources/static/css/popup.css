@@ -16,6 +16,7 @@ h4, input {
     box-shadow: 3px 4px 11px 0 #00000040;
     transition: all 0.5s;
     text-align: center;
+    width: 80%;
 }
 
 /*토스트 메시지 활성화 되었을 때*/
@@ -42,8 +43,6 @@ h4, input {
     display: flex;
     /*위에서 아래로 수직 배치*/
     flex-direction: column;
-    /*중앙정렬*/
-    justify-content: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -65,11 +64,20 @@ h4, input {
     cursor: pointer;
     transition: box-shadow 0.2s;
 }
-
 .modal-container.on {
     display: block;
 }
 
 .copy-value {
     width: 70%;
+}
+
+.position-btn-close {
+    position: relative;
+}
+
+.btn-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
