@@ -39,9 +39,23 @@ function sendBtnClick() {
     const card_id = document.getElementsByName("id")[0].value;
     let contents = document.getElementById("autoResizeTextarea").value;
     let writer_name = document.getElementById("writer-name").value;
+    let cont = document.getElementById("autoResizeTextarea")
+    let write = document.getElementById("writer-name")
     writer_name = writer_name.replace(regex_gap, '');
     contents = contents.replace(regex_gap, '');
-
+    console.log("btn click");
+    if (writer_name ===''){
+        write.style.boxShadow = "0 0 10px rgba(255,0,0,0.50)";
+        write.style.border = 'none';
+    } else{
+        write.style.border = '1px solid #dee2e6';
+        write.style.boxShadow = "none";
+    }
+    if (contents === ''){
+        cont.style.boxShadow = "0 0 10px rgba(255,0,0,0.50)";
+    }
+    else{
+        cont.style.border = 'none';}
     if ((writer_name === '') || (contents === '')) {
         toastOn();
         return;
@@ -76,7 +90,7 @@ function asyncTest(card_id, data){
         res.text().then(function(text){
             console.log("자바단 데이터 = " + text);
             url = document.getElementById("card-url");
-            url.value = "http://happycard.site:8080/read-card?writeCardId="+ text;
+            url.value = "http://localhost:8082/read-card?writeCardId="+ text;
         })
     })
     .catch(err=> {

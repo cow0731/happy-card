@@ -27,7 +27,7 @@ function dynamic(arr){
     if(arr.length > 0){ //배열의 길이가 0보다 크면(배열에 요소가 하나라도 있다면)
         target.textContent += arr.shift();//dynamic에 textContent에 배열의 요소 추가
         setTimeout(function(){
-            dynamic(arr)}, 80)//0.08초 후에 daynamic함수를 실행
+            dynamic(arr)}, 10)//0.08초 후에 daynamic함수를 실행
     }
 }
 dynamic(split); //dynamic함수에 split인자 넣어서 실행
