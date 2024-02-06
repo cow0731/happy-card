@@ -29,7 +29,7 @@ function dynamic(arr){
         target.textContent += arr.shift();//dynamic에 textContent에 배열의 요소 추가
         resizeArea();
         setTimeout(function(){
-            dynamic(arr)}, 10)//0.08초 후에 daynamic함수를 실행
+            dynamic(arr)}, 80)//0.08초 후에 daynamic함수를 실행
     }
 }
 dynamic(split); //dynamic함수에 split인자 넣어서 실행

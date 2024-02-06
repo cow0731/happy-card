@@ -1,6 +1,7 @@
 const modal = document.querySelector('.modal-container');
 const modalOpen = document.querySelector('.send-btn');
 const modalClose = document.querySelector('.share-btn');
+const modalBtnClose = document.querySelector('.btn-close');
 
 let url = document.getElementById("card-url");
 
@@ -9,6 +10,9 @@ let url = document.getElementById("card-url");
 //     //'on' class 추가
 //     modal.classList.add('on');
 // });
+modalBtnClose.addEventListener('click', function () {
+    modal.classList.remove('on');
+})
 //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
 modalClose.addEventListener('click',function(){
     //'on' class 제거
@@ -91,7 +95,7 @@ function asyncTest(card_id, data){
         res.text().then(function(text){
             console.log("자바단 데이터 = " + text);
             url = document.getElementById("card-url");
-            url.value = "http://localhost:8082/read-card?writeCardId="+ text;
+            url.value = "http://happycard.site:8080/read-card?writeCardId="+ text;
         })
     })
     .catch(err=> {
