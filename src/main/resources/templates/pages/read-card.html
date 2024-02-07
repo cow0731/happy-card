@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default_layout}" xmlns="http://www.w3.org/1999/html">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" href="/css/card.css" />
+</th:block>
+
+    <div class="content" layout:fragment="content">
+        <div class="information">
+            <i class="bi bi-postcard-heart"></i>
+            <span>새해 복 많이 받으세요 !</span>
+        </div>
+
+        <div>
+            <img th:src="@{'/img/00' + ${card_id} + '.png'}" th:alt="${card_id} + 'image'">
+        </div>
+        <div class="textarea-top-margin">
+            <div class="typing-txt">
+                <textarea readonly id="autoResizeTextarea" rows="5">
+                    [[${writeContent}]]
+                </textarea>
+            </div>
+            <div class="typing">
+                <textarea readonly id="typingTextarea"></textarea>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button th:onclick="|location.href='@{/}'|" class="btn btn-primary">나도 카드 보내기</button>
+            </div>
+        </div>
+        <script th:inline="javascript" src="/js/card.js"></script>
+        <script th:inline="javascript" src="/js/typing.js"></script>
+    </div>
+</html>

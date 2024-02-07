@@ -13,6 +13,5 @@ function autoResize(textarea) {
 
 // 페이지 로드 시 초기 호출
 window.addEventListener('load', function() {
-    autoResize(document.getElementById('textarea'));
+    autoResize(document.getElementById('autoResizeTextarea'));
 });
-

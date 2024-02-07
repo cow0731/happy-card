@@ -18,3 +18,7 @@ button {
     border: none;
     background-color: transparent;
 }
+#autoResizeTextarea {
+    resize: none; /* Prevent manual resizing */
+    overflow-y: hidden; /* Hide vertical scrollbar initially */
+}

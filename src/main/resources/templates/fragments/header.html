@@ -2,6 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <div class="d-flex justify-content-center" th:fragment="header">
-        <i class="bi bi-box2-heart-fill"></i>
+        <i th:onclick="|location.href='@{/}'|" class="bi bi-box2-heart-fill"></i>
     </div>
 </html>

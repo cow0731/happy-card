@@ -34,6 +34,7 @@ bin/
 ## .properties .yml files ##
 src/main/**/*.properties
 src/main/**/*.yml
+src/main/resources/static/js/key.js
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,java,gradle,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,gradle,intellij
